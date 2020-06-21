@@ -1,0 +1,39 @@
+{% if movie_list %}
+
+    <table class="table table-hover" enctype="multipart/form-data">
+
+        <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Poster</th>
+              <th>Title</th>
+              <th>Genre</th>
+            </tr>
+        </thead>
+
+        {% for movie in movie_list %}
+            <tr>
+              <td> <a href="{% url 'movie:movie_details'  movie.id %}">DETAILS</a></td>
+              <td>
+                <div class="media">
+                  <div class="img-circle.vert">
+                    <img width="300" height="300"  src="{{ movie.poster.url }}">
+                  </div>
+                </div>
+              </td>
+              <td> {{ movie.title }}</td>
+              <td> {{ movie.genre }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+        <div class="p-1 m-1">
+            {% include 'includes/pagination.html' %}
+        </div>
+
+
+{% else %}
+    <p>Sorry, list is empty</p>
+
+{% endif %}

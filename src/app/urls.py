@@ -25,6 +25,7 @@ urlpatterns = [
     path('success/', TemplateView.as_view(template_name='success.html'), name='success'),
 
     path('account/', include('user_account.urls')),
+    path('movies/', include('movie.urls')),
 ]
 
 urlpatterns += \

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+<!--{% load crispy_forms_tags %}-->
+
+{% block content %}
+
+{% if movie %}
+
+    <table class="table table-hover" enctype="multipart/form-data">
+
+        <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Poster</th>
+              <th>Title</th>
+              <th>Genre</th>
+            </tr>
+        </thead>
+
+            <tr>
+              <td> {{ movie.id }}</td>
+              <td>
+                <div class="media">
+                  <div class="img-circle.vert">
+                    <img width="500" height="500"  src="{{ movie.poster.url }}">
+                  </div>
+                </div>
+              </td>
+              <td> {{ movie.title }}</td>
+              <td> {{ movie.genre }}</td>
+            </tr>
+
+    </table>
+
+    <p><b>DESCRIPTION </b>: {{ movie.description }}</p>
+    <p><b>PRODUCER </b>: {{ movie.producer }}</p>
+    <p><b>BUDGET </b>: {{ movie.budget }} <b>$</b></p>
+    <p><b>RELEASE_DATE </b>: {{ movie.release_date }}</p>
+
+{% else %}
+    <p>Sorry, no details about the movie</p>
+
+{% endif %}
+
+{% endblock %}

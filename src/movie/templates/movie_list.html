@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <form>
+
+     <div class="input-group mb-3">
+         <div class="input-group-prepend">
+             <span class="input-group-text" id="basic-addon1">Title</span>
+         </div>
+         <input name="title" type="text" class="form-control" placeholder="Title" aria-label="title" aria-describedby="basic-addon1">
+
+         <div class="input-group-prepend">
+             <span class="input-group-text" id="basic-addon1">Genre</span>
+         </div>
+         <input name="genre" type="text" class="form-control" placeholder="Genre" aria-label="genre" aria-describedby="basic-addon1">
+
+         <button type="submit" class="btn btn-success">Search</button>
+     </div>
+
+    </form>
+
+
+    {% include 'includes/movie_table.html' %}
+
+
+{% endblock %}
